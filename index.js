@@ -8,12 +8,6 @@ const flash = require('connect-flash')
 process.env.TZ = 'Asia/Jakarta'
 const router = require('./router')
 
-const url = require('url');
-
-const encodedDomainUrl = url.domainToASCII('example.com');
-
-console.log(encodedDomainUrl);
-
 const app = express()
 dotenv.config()
 const PORT = process.env.PORT

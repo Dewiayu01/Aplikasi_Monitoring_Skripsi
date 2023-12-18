@@ -5,7 +5,6 @@ const path = require('path')
 
 const { getRegisterPage, register, getLogin, login, getDashboardMahasiswa, getDaftarJudul, getJudulDiterima, pengajuanDosen, postPengajuanDosen,  getPengajuanJudul, postPengajuanJudul1, editPengajuanJudul1, editPengajuanJudul2, postPengajuanJudul2, getProposalPage, postProposalPage, downloadProposal, updateProposal, editStatusJadwalProposal, downloadProposalRevisiDosen1, postProposalRevisi1Page, downloadProposalRevisi, postProposalRevisi2Page, downloadProposalRevisi2, getHasilSkripsiPage, postHasilPage, downloadHasil, downloadHasilRevisiDosen1, downloadHasilRevisiDosen2, updateHasil, editStatusJadwalHasil, postHasilSkripsiRevisi1Page, downloadHasilSkripsiRevisi1, postHasilSkripsiRevisi2Page, downloadHasilSkripsiRevisi2, getKomprehensifPage, postKomprehensifPage, downloadKomprehensif, updateKomprehensif, editStatusJadwalKomprehensif, postKomprehensifRevisi1Page, downloadKomprehensifRevisi, postKomprehensifRevisi2Page, downloadKomprehensifRevisi2, getPassword, forgotPassword, showResetPasswordForm, resetPassword, profile, profilePost, ubahPassword, passwordPost, logout} = require('../controllers/mahasiswaController')
 const { authMahasiswa } = require('../middleware/auth');
-const { downloadHasilSkripsi } = require('../controllers/adminController');
 
 const mahasiswaRouter = Router()
 mahasiswaRouter.route('/register')
