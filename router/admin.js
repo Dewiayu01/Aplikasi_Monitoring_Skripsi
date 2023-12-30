@@ -5,7 +5,7 @@ const { authAdmin} = require('../middleware/auth')
 const path = require('path');
 const fs = require('fs');
 
-const { registerAPI, getLogin, login, getDashboardAdmin, getThesisRegistrations, addThesis, editThesis, deleteThesis, editStatus, getMahasiswa, addMahasiswa, importMahasiswa, editMahasiswa, deleteMahasiswa, displayStudentPhoto, getDosen, addDosen, editDosen, deleteDosen, getKoorSkripsi, addKoor, editKoor, deleteKoor, getDaftarDosen, addDosenToDaftar, deleteDaftarDosen, getDaftarDosen2, addDosenToDaftar2, deleteDaftarDosen2, getDaftarDosen3, addDosenToDaftar3, deleteDaftarDosen3, getPembagianDosen, addPembagianDosen,  editPembagianDosen, ubahPembagianDosen, getPermintaanBimbingan, editPermintaanBimbingan, getPengajuanJudul, editPengajuanJudul, deletePengajuanJudul, getJudulDiterima, getProposal, downloadProposal, editProposal, deleteProposal, downloadProposalRevisi1, downloadProposalRevisi2, getProposalMasuk, editProposalMasuk,  getProposalTerjadwal, editProposalTerjadwal, editProposalTerjadwalSelesai, getProposalSelesai, editProposalSelesai, getHasilSkripsi, downloadHasilSkripsi, editHasilSkripsi, deleteHasilSkripsi, downloadHasilSkripsiRevisi1, downloadHasilSkripsiRevisi2, getHasilMasuk, editHasilMasuk, getHasilTerjadwal, editHasilTerjadwal, editHasilTerjadwalSelesai, getHasilSelesai, editHasilSelesai, getKomprehensif, downloadKomprehensif, editKomprehensif, deleteKomprehensif, downloadKomprehensifRevisi1,downloadKomprehensifRevisi2, getKomprehensifMasuk, editKomprehensifMasuk, getKomprehensifTerjadwal, editKomprehensifTerjadwal, editKomprehensifTerjadwalSelesai, getKomprehensifSelesai, editKomprehensifSelesai,  profile, profilePost, ubahPassword, passwordPost, logout, exportTableToClipboard, exportTableToCSV, exportTableToExcel, exportTableToPDF, printTable, exportTableToClipboardMahasiswa, exportTableToCSVMahasiswa, exportTableToExcelMahasiswa, exportTableToPDFMahasiswa, printTableMahasiswa, exportTableToClipboardKoor, exportTableToCSVKoor, exportTableToExcelKoor, exportTableToPDFKoor, exportTableToClipboardDaftarDosen1, exportTableToCSVDaftarDosen1, exportTableToExcelDaftarDosen1, exportTableToPDFDaftarDosen1, exportTableToClipboardDaftarDosen2, exportTableToCSVDaftarDosen2, exportTableToExcelDaftarDosen2, exportTableToPDFDaftarDosen2, exportTableToClipboardDaftarDosen3, exportTableToCSVDaftarDosen3, exportTableToExcelDaftarDosen3, exportTableToPDFDaftarDosen3, exportTableToClipboardPengajuanJudul, exportTableToCSVPengajuanJudul, exportTableToExcelPengajuanJudul, exportTableToPDFPengajuanJudul} = require('../controllers/adminController');
+const { registerAPI, getLogin, login, getDashboardAdmin, getThesisRegistrations, addThesis, editThesis, deleteThesis, editStatus, getMahasiswa, addMahasiswa, editMahasiswa, deleteMahasiswa, displayStudentPhoto, getDosen, addDosen, editDosen, deleteDosen, getKoorSkripsi, addKoor, editKoor, deleteKoor, getDaftarDosen, addDosenToDaftar, deleteDaftarDosen, getDaftarDosen2, addDosenToDaftar2, deleteDaftarDosen2, getDaftarDosen3, addDosenToDaftar3, deleteDaftarDosen3, getPembagianDosen, editPembagianDosen, ubahPembagianDosen, getPermintaanBimbingan, editPermintaanBimbingan, getPengajuanJudul, editPengajuanJudul, deletePengajuanJudul, getJudulDiterima, getProposal, downloadProposal, editProposal, deleteProposal, downloadProposalRevisi1, downloadProposalRevisi2, getProposalMasuk, editProposalMasuk,  getProposalTerjadwal, editProposalTerjadwal, editProposalTerjadwalSelesai, getProposalSelesai, editProposalSelesai, getHasilSkripsi, downloadHasilSkripsi, editHasilSkripsi, deleteHasilSkripsi, downloadHasilSkripsiRevisi1, downloadHasilSkripsiRevisi2, getHasilMasuk, editHasilMasuk, getHasilTerjadwal, editHasilTerjadwal, editHasilTerjadwalSelesai, getHasilSelesai, editHasilSelesai, getKomprehensif, downloadKomprehensif, editKomprehensif, deleteKomprehensif, downloadKomprehensifRevisi1,downloadKomprehensifRevisi2, getKomprehensifMasuk, editKomprehensifMasuk, getKomprehensifTerjadwal, editKomprehensifTerjadwal, editKomprehensifTerjadwalSelesai, getKomprehensifSelesai, editKomprehensifSelesai,  profile, profilePost, ubahPassword, passwordPost, logout, exportTableToClipboard, exportTableToCSV, exportTableToExcel, exportTableToPDF, printTable, exportTableToClipboardMahasiswa, exportTableToCSVMahasiswa, exportTableToExcelMahasiswa, exportTableToPDFMahasiswa, printTableMahasiswa, exportTableToClipboardKoor, exportTableToCSVKoor, exportTableToExcelKoor, exportTableToPDFKoor, exportTableToClipboardDaftarDosen1, exportTableToCSVDaftarDosen1, exportTableToExcelDaftarDosen1, exportTableToPDFDaftarDosen1, exportTableToClipboardDaftarDosen2, exportTableToCSVDaftarDosen2, exportTableToExcelDaftarDosen2, exportTableToPDFDaftarDosen2, exportTableToClipboardDaftarDosen3, exportTableToCSVDaftarDosen3, exportTableToExcelDaftarDosen3, exportTableToPDFDaftarDosen3, exportTableToClipboardPengajuanJudul, exportTableToCSVPengajuanJudul, exportTableToExcelPengajuanJudul, exportTableToPDFPengajuanJudul} = require('../controllers/adminController');
 
 const {exportTableToClipboardJudulDiterima, exportTableToCSVJudulDiterima, exportTableToExcelJudulDiterima, exportTableToPDFJudulDiterima, exportTableToClipboardPembagianDosen, exportTableToCSVPembagianDosen, exportTableToExcelPembagianDosen, exportTableToPDFPembagianDosen, exportTableToClipboardPermintaanBimbingan, exportTableToCSVPermintaanBimbingan, exportTableToExcelPermintaanBimbingan, exportTableToPDFPermintaanBimbingan, exportTableToClipboardProposal, exportTableToCSVProposal, exportTableToExcelProposal, exportTableToPDFProposal,exportTableToClipboardProposalMasuk, exportTableToCSVProposalMasuk, exportTableToExcelProposalMasuk, exportTableToPDFProposalMasuk, exportTableToClipboardProposalTerjadwal, exportTableToCSVProposalTerjadwal, exportTableToExcelProposalTerjadwal, exportTableToPDFProposalTerjadwal, exportTableToClipboardProposalSelesai, exportTableToCSVProposalSelesai, exportTableToExcelProposalSelesai, exportTableToPDFProposalSelesai, exportTableToClipboardHasil, exportTableToCSVHasil, exportTableToExcelHasil, exportTableToPDFHasil, exportTableToClipboardHasilMasuk, exportTableToCSVHasilMasuk, exportTableToExcelHasilMasuk, exportTableToPDFHasilMasuk, exportTableToClipboardHasilTerjadwal, exportTableToCSVHasilTerjadwal, exportTableToExcelHasilTerjadwal, exportTableToPDFHasilTerjadwal, exportTableToClipboardHasilSelesai, exportTableToCSVHasilSelesai, exportTableToExcelHasilSelesai, exportTableToPDFHasilSelesai,  exportTableToClipboardKomprehensif, exportTableToCSVKomprehensif, exportTableToExcelKomprehensif, exportTableToPDFKomprehensif, exportTableToClipboardKomprehensifMasuk, exportTableToCSVKomprehensifMasuk, exportTableToExcelKomprehensifMasuk, exportTableToPDFKomprehensifMasuk, exportTableToClipboardKomprehensifTerjadwal, exportTableToCSVKomprehensifTerjadwal, exportTableToExcelKomprehensifTerjadwal, exportTableToPDFKomprehensifTerjadwal, exportTableToClipboardKomprehensifSelesai, exportTableToCSVKomprehensifSelesai, exportTableToExcelKomprehensifSelesai, exportTableToPDFKomprehensifSelesai, downloadHasilSkripsiRevisiDosen1, downloadHasilSkripsiRevisiDosen2, downloadKomprehensifRevisiDosen1, downloadKomprehensifRevisiDosen2, downloadProposalRevisiDosen1, downloadProposalRevisiDosen2} = require('../controllers/adminController');
  
@@ -55,14 +55,11 @@ const storageImport = multer.diskStorage({
   }
 });
 const uploadImport = multer({ storage: storageImport });
-// adminRouter.route('/mahasiswa/import')
-          //  .post(authAdmin, uploadImport.single('excelFile'), importMahasiswa); 
 
 adminRouter.post('/copy-mahasiswa', authAdmin, exportTableToClipboardMahasiswa);
 adminRouter.post('/csv-mahasiswa', authAdmin, exportTableToCSVMahasiswa);
 adminRouter.post('/excel-mahasiswa', authAdmin, exportTableToExcelMahasiswa);
 adminRouter.post('/pdf-mahasiswa', authAdmin, exportTableToPDFMahasiswa);
-adminRouter.post('/print-mahasiswa', authAdmin, printTableMahasiswa);
 
 adminRouter.get('/dosen', authAdmin, getDosen)
 adminRouter.route('/dosen/tambah')
@@ -89,7 +86,6 @@ adminRouter.post('/copy-koor', authAdmin, exportTableToClipboardKoor);
 adminRouter.post('/csv-koor', authAdmin, exportTableToCSVKoor);
 adminRouter.post('/excel-koor', authAdmin, exportTableToExcelKoor);
 adminRouter.post('/pdf-koor', authAdmin, exportTableToPDFKoor);
-//adminRouter.post('/print-koor', authAdmin, printTableKoor);
 
 adminRouter.get('/pengajuan-judul', authAdmin, getPengajuanJudul)
 adminRouter.route('/pengajuan-judul/edit/:id')
@@ -108,8 +104,6 @@ adminRouter.post('/excel-JudulDiterima', authAdmin, exportTableToExcelJudulDiter
 adminRouter.post('/pdf-JudulDiterima', authAdmin, exportTableToPDFJudulDiterima);
 
 adminRouter.get('/pembagian-dosen', authAdmin, getPembagianDosen)
-adminRouter.route('/pembagian-dosen/tambah')
-            .post(authAdmin, addPembagianDosen)
 adminRouter.route('/pembagian-dosen/edit/:id')
             .post(authAdmin, editPembagianDosen)
 adminRouter.post('/pembagian-dosen/editDosen/:id', authAdmin, ubahPembagianDosen)
@@ -135,7 +129,6 @@ adminRouter.post('/copy-daftarDosen1', authAdmin, exportTableToClipboardDaftarDo
 adminRouter.post('/csv-daftarDosen1', authAdmin, exportTableToCSVDaftarDosen1);
 adminRouter.post('/excel-daftarDosen1', authAdmin, exportTableToExcelDaftarDosen1);
 adminRouter.post('/pdf-daftarDosen1', authAdmin, exportTableToPDFDaftarDosen1);
-// adminRouter.post('/print-daftarDosen1', authAdmin, printTableMahasiswa);
 
 adminRouter.get('/daftar-dosen2', authAdmin, getDaftarDosen2);
 adminRouter.post('/daftar-dosen2/tambah', authAdmin, addDosenToDaftar2);

@@ -15,6 +15,14 @@ module.exports = (sequelize, DataTypes) => {
       DevisionOfLecturer.belongsTo(models.LecturerUser, { as: 'Pembimbing1', foreignKey: 'dosenPembimbing1Id' });
       DevisionOfLecturer.belongsTo(models.LecturerUser, { as: 'Pembimbing2', foreignKey: 'dosenPembimbing2Id' });
       DevisionOfLecturer.belongsTo(models.LecturerUser, { as: 'Pembahas', foreignKey: 'dosenPembahasId' });
+      DevisionOfLecturer.belongsTo(models.TitleSubmission, {
+        foreignKey: 'npm',
+        targetKey: 'npm', 
+      });
+      DevisionOfLecturer.belongsTo(models.TitleSubmission2, {
+        foreignKey: 'npm',
+        targetKey: 'npm', 
+      });
     }
   }
   DevisionOfLecturer.init({

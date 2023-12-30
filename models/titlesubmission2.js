@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       TitleSubmission2.belongsTo(models.StudentUser)
+      TitleSubmission2.hasOne(models.TitleSubmission, { foreignKey: 'TitleSubmission2Id' });
     }
   }
   TitleSubmission2.init({
@@ -28,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     referensiJurnal2: DataTypes.STRING,
     referensiJurnal3: DataTypes.STRING,
     statusPersetujuan: DataTypes.STRING,
-    StudentUserId: DataTypes.INTEGER
+    StudentUserId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'TitleSubmission2',

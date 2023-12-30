@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   LecturerUser.init({
-    nip: DataTypes.INTEGER,
+    nip: DataTypes.STRING,
     nama: DataTypes.STRING,
     gender: DataTypes.STRING,
     foto: DataTypes.STRING,

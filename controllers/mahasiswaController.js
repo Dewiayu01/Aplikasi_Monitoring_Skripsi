@@ -34,7 +34,7 @@ const getRegisterPage = async (req, res) => {
 };
 
 const register = async (req, res) => {
-    const {npm, nama, gender, angkatan, email, password, role} = req.body;
+    const {npm, nama, gender, angkatan, foto, email, password, role} = req.body;
 
     try {
         const npmExist = await StudentUser.findOne({
@@ -69,6 +69,7 @@ const register = async (req, res) => {
             nama,
             gender,
             angkatan,
+            foto,
             username: nama,
             email,
             password: encryptPass(password),
@@ -240,23 +241,25 @@ const getDashboardMahasiswa = async (req, res) => {
         const { id, username } = req.cookies
 
         const profile = await StudentUser.findOne({
-            where: { id }
+            where: { id, username}
         })
 
         const jmlMhs = await StudentUser.findAll({})
 
-        const judul = await Proposal.findAll({
+        const judul = await DevisionOfLecturer.findAll({
           include: [
             {
               model: TitleSubmission,
-              attributes: ['judul1', 'statusPersetujuan'], 
+              attributes: ['judul1'] ['statusPersetujuan'],
+              where: {npm : profile.npm}
             },
             {
               model: TitleSubmission2,
-              attributes: ['judul2'], 
+              attributes: ['judul2'],
+              where: {npm : profile.npm}
             },
           ],
-        });
+        });        
 
         const pembimbing1 = await DevisionOfLecturer.findOne({
           where: { id }, 

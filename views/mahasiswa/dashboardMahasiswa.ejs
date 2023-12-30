@@ -20,7 +20,7 @@
                                 </h1>
                             </div>
 
-                              <div style="color: #325662;" style="font-size: 30px;">
+                            <div style="color: #325662; font-size: 30px;">
                                 <strong>JUDUL :</strong>
                               </div>
                               <div class="text-kesamping" style="color: #325662; display: flex; align-items: center; margin-right: 10px; font-size: 18px;">
@@ -28,14 +28,14 @@
                                   <% let judulFound = false; %>
                                   <% judul.forEach(item => { %>
                                     <% if (item.TitleSubmission) { %>
-                                      <% if (item.TitleSubmission.statusPersetujuan === 'Judul 1 Diterima') { %>
+                                        <% if (item.TitleSubmission  && item.TitleSubmission.statusPersetujuan === 'Judul 1 Diterima') { %>
                                         <% if (item.TitleSubmission.judul1) { %>
                                           <div class="judul-container">
                                             <%= item.TitleSubmission.judul1 %>
                                           </div>
                                           <% judulFound = true; %>
                                         <% } %>
-                                      <% } else if (item.TitleSubmission.statusPersetujuan === 'Judul 2 Diterima') { %>
+                                        <% } else if (item.TitleSubmission && item.TitleSubmission.statusPersetujuan === 'Judul 2 Diterima') { %>
                                         <% if (item.TitleSubmission2.judul2) { %>
                                           <div class="judul-container">
                                             <%= item.TitleSubmission2.judul2 %>
@@ -52,9 +52,8 @@
                                   Data tidak ditemukan
                                 <% } %>
                               </div>
-                              <br>
-                              
-                              
+                              <br>                              
+
                             <!-- Content Row -->
                             <div class="row">
 

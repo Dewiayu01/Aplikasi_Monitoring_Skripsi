@@ -4,7 +4,6 @@ const { User, ThesisRegistration, StudentUser, LecturerUser, CoordinatorUser, De
 const { generateToken } = require('../helpers/jwt')
 const { encryptPass, decryptPass } = require('../helpers/bcrypt')
 const colors = require('../helpers/colors');
-const excelToJson = require("convert-excel-to-json");
 const path = require('path');
 const copyPaste = require('copy-paste');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
@@ -113,6 +112,7 @@ const getDashboardAdmin = async (req, res) => {
         const jumlahMahasiswaHasil = await HasilSkripsi.findAll({});
         const jumlahMahasiswaKomprehensif = await HasilSkripsi.findAll({});
         const pengajuanDosen = await DevisionOfLecturer.findAll({});
+  
 
         const titleFilterPengajuan0 = titleSubs.filter(item => item.statusPengajuan === false);
         const titleFilterPengajuan1 = titleSubs.filter(item => item.statusPengajuan === true);
@@ -293,12 +293,12 @@ const getMahasiswa = async (req, res) => {
 
 const addMahasiswa = async (req, res) => {
     try {
-        const { npm, nama, gender, angkatan} = req.body;
-        let foto =''
+        const { npm, nama, gender, foto, angkatan} = req.body;
+        // let foto =''
 
-        if (req.file) {
-            foto = req.file.filename; 
-        }
+        // if (req.file) {
+            // foto = req.file.filename; 
+        // }
 
         await StudentUser.create({
             npm,
@@ -697,7 +697,7 @@ const addDosen = async (req, res) => {
         res.status(201).redirect('/admin/dosen');
     } catch (error) {
         if (error.message === "Validation error: Validation len on nip failed") {
-            req.flash('validateError', 'Data Dosen gagal DITAMBAH! Silakan input ulang dengan NIP maksimal digit 15.');
+            req.flash('validateError', 'Data Dosen gagal DITAMBAH! Silakan input ulang dengan NIP maksimal digit 18.');
             return res.status(400).redirect('/admin/dosen');
         }
 
@@ -729,7 +729,7 @@ const editDosen = async (req, res) => {
         res.redirect('/admin/dosen');
     } catch (error) {
         if (error.message === "Validation error: Validation len on nip failed") {
-            req.flash('validateError', 'Data Dosen gagal DIUBAH! Silakan ubah ulang dengan NIP maksimal digit 15.');
+            req.flash('validateError', 'Data Dosen gagal DIUBAH! Silakan ubah ulang dengan NIP maksimal digit 18.');
             return res.status(400).redirect('/admin/dosen');
         }
 
@@ -1054,7 +1054,7 @@ const addKoor = async (req, res) => {
         res.status(201).redirect('/admin/koordinator-skripsi');
     } catch (error) {
         if (error.message === "Validation error: Validation len on nip failed") {
-            req.flash('validateError', 'Data Koordinator Skripsi gagal DITAMBAH! Silakan input ulang dengan NIP maksimal digit 15.');
+            req.flash('validateError', 'Data Koordinator Skripsi gagal DITAMBAH! Silakan input ulang dengan NIP maksimal digit 18.');
             return res.status(400).redirect('/admin/koordinator-skripsi');
         }
 
@@ -1086,7 +1086,7 @@ const editKoor = async (req, res) => {
         res.redirect('/admin/koordinator-skripsi');
     } catch (error) {
         if (error.message === "Validation error: Validation len on nip failed") {
-            req.flash('validateError', 'Data Koordinator Skripsi gagal DIUBAH! Silakan ubah ulang dengan NIP maksimal digit 15.');
+            req.flash('validateError', 'Data Koordinator Skripsi gagal DIUBAH! Silakan ubah ulang dengan NIP maksimal digit 18.');
             return res.status(400).redirect('/admin/koordinator-skripsi');
         }
 
@@ -1342,27 +1342,6 @@ const getPembagianDosen = async (req, res) => {
             editSuccess: req.flash('editSuccess'),
         });
 
-    } catch (error) {
-        res.status(500).json({
-            status: 500,
-            msg: error.message
-        });
-    }
-};
-
-const addPembagianDosen = async (req, res) => {
-    try {
-        const { nama, dosenPembimbing1, dosenPembimbing2, dosenPembahas, tanggalPengajuan } = req.body;
-
-        await DevisionOfLecturer.create({
-            nama,
-            dosenPembimbing1,
-            dosenPembimbing2,
-            dosenPembahas,
-            tanggalPengajuan
-        });
-
-        res.status(201).redirect('/admin/pembagian-dosen');
     } catch (error) {
         res.status(500).json({
             status: 500,
@@ -5241,7 +5220,7 @@ const deleteHasilSkripsi = async (req, res) => {
         });
 
         req.flash('deleteSuccess', 'Data hasil mahasiswa berhasil DIHAPUS!');
-        res.redirect('/admin/proposal');
+        res.redirect('/admin/hasil-skripsi');
     } catch (error) {
         res.status(500).json({
             status: 500,
@@ -8715,7 +8694,6 @@ module.exports = {
     exportTableToExcelKoor, 
     exportTableToPDFKoor, 
     getPembagianDosen,
-    addPembagianDosen,
     editPembagianDosen,
     ubahPembagianDosen,
     exportTableToClipboardPembagianDosen, 

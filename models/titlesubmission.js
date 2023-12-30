@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     referensiJurnal3: DataTypes.STRING,
     tanggalPengajuan: DataTypes.DATE,
     statusPersetujuan: DataTypes.STRING,
-    StudentUserId: DataTypes.INTEGER
+    StudentUserId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'TitleSubmission',
