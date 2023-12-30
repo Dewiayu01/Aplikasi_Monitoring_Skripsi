@@ -21,27 +21,26 @@
                                 <input class="form-control w-25" type="text" name="judul" id="judul" value="<%= judul %>" disabled>
                             </div>
                             <div class="form-group">
+                                <% const uniqueStudentIds = new Set(); %>
                                 <% dataBimbinganProposal.map((item, i) => { %>
-                                <% if (item.DevisionOfLecturer) { %>
-                                <% if (item.DevisionOfLecturer.dosenPembimbing2 === username) { %>
-                                <% if (item.proposalRevisiDosen2) { %>
-                                    <label for="proposalRevisiDosen2">Revisi Proposal Skripsi Pb 1</label>
-                                    <br style="margin-top: 10px;">
-                                    <input class="form-control" type="text" id="proposalRevisiDosen2" value="<%= item.proposalRevisiDosen2 %>" disabled>
-                                    <br>
-                                    <a href="/dosen/proposal-revisiDosen2/download/<%= item.id %>" download="<%= item.proposalRevisiDosen2.split('/').pop() %>" class="btn btn-primary">Unduh Revisi Proposal Skripsi Pb 2</a>
-                                    <br><br>
-                                    <label for="proposalRevisiDosen2">Upload File Revisi 2 Bimbingan Proposal Skripsi Mahasiswa</label>
-                                    <input class="form-control-file" type="file" accept="*/*" 
-                                    name="proposalRevisiDosen2" id="proposalRevisiDosen2" required>
-                                <% } else { %>
-                                    <label for="proposalRevisiDosen2">Upload File Revisi 2 Bimbingan Proposal Skripsi Mahasiswa</label>
-                                    <input class="form-control-file" type="file" accept="*/*" name="proposalRevisiDosen2" id="proposalRevisiDosen2" required>
-                                <% } %>
-                                <% } %> 
-                            <% } %>
-                        <% }) %>
-                        </div>
+                                    <% if (item.DevisionOfLecturer) { %>
+                                        <% const studentId = item.idMahasiswa; %>
+                                        <% if (!uniqueStudentIds.has(studentId) && item.DevisionOfLecturer.dosenPembimbing2 === username) { %>
+                                            <% uniqueStudentIds.add(studentId); %>
+                                            <% if (item.proposalRevisiDosen2) { %>
+                                                <label for="proposalRevisiDosen2">Revisi Proposal Skripsi Pb 1</label>
+                                                <br style="margin-top: 10px;">
+                                                <input class="form-control" type="text" id="proposalRevisiDosen2" value="<%= item.proposalRevisiDosen2 %>" disabled>
+                                                <br>
+                                                <a href="/dosen/proposal-revisiDosen2/download/<%= item.id %>" download="<%= item.proposalRevisiDosen2.split('/').pop() %>" class="btn btn-primary">Unduh Revisi Proposal Skripsi Pb 2</a>
+                                                <br><br>
+                                            <% } %>
+                                            <label for="proposalRevisiDosen2">Upload File Revisi 2 Bimbingan Proposal Skripsi Mahasiswa</label>
+                                            <input class="form-control-file" type="file" accept="*/*" name="proposalRevisiDosen2" id="proposalRevisiDosen2" required>
+                                        <% } %>
+                                    <% } %> 
+                                <% }) %>
+                            </div>                            
                         <br>
                         <div class="form-group">
                             <% if (dosenPembimbing1 || dosenPembimbing2) { %>

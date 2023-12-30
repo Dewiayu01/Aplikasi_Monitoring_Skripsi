@@ -21,27 +21,26 @@
                                 <input class="form-control w-25" type="text" name="judul" id="judul" value="<%= judul %>" disabled>
                             </div>
                             <div class="form-group">
+                                <% const uniqueStudentIds = new Set(); %>
                                 <% dataBimbinganKomprehensif.map((item, i) => { %>
-                                <% if (item.DevisionOfLecturer) { %>
-                                <% if (item.DevisionOfLecturer.dosenPembimbing1 === username) { %>
-                                <% if (item.komprehensifRevisiDosen1) { %>
-                                    <label for="komprehensifRevisiDosen1">Revisi Komprehensif Pb 1</label>
-                                    <br style="margin-top: 10px;">
-                                    <input class="form-control" type="text" id="komprehensifRevisiDosen1" value="<%= item.komprehensifRevisiDosen1 %>" disabled>
-                                    <br>
-                                    <a href="/dosen/komprehensif-revisiDosen1/download/<%= item.id %>" download="<%= item.komprehensifRevisiDosen1.split('/').pop() %>" class="btn btn-primary">Unduh Revisi Komprehensif Pb 1</a>
-                                    <br><br>
-                                    <label for="komprehensifRevisiDosen1">Upload File Revisi 1 Bimbingan Komprehensif Mahasiswa</label>
-                                    <input class="form-control-file" type="file" accept="*/*" 
-                                    name="komprehensifRevisiDosen1" id="komprehensifRevisiDosen1" required>
-                                <% } else { %>
-                                    <label for="komprehensifRevisiDosen1">Upload File Revisi 1 Bimbingan Komprehensif Mahasiswa</label>
-                                    <input class="form-control-file" type="file" accept="*/*" name="komprehensifRevisiDosen1" id="komprehensifRevisiDosen1" required>
-                                <% } %>
-                                <% } %> 
-                            <% } %>
-                        <% }) %>
-                        </div>
+                                    <% if (item.DevisionOfLecturer) { %>
+                                        <% const studentId = item.idMahasiswa; %>
+                                        <% if (!uniqueStudentIds.has(studentId) && item.DevisionOfLecturer.dosenPembimbing1 === username) { %>
+                                            <% uniqueStudentIds.add(studentId); %>
+                                            <% if (item.komprehensifRevisiDosen1) { %>
+                                                <label for="komprehensifRevisiDosen1">Revisi Komprehensif Pb 1</label>
+                                                <br style="margin-top: 10px;">
+                                                <input class="form-control" type="text" id="komprehensifRevisiDosen1" value="<%= item.komprehensifRevisiDosen1 %>" disabled>
+                                                <br>
+                                                <a href="/dosen/komprehensif-revisiDosen1/download/<%= item.id %>" download="<%= item.komprehensifRevisiDosen1.split('/').pop() %>" class="btn btn-primary">Unduh Revisi Komprehensif Pb 1</a>
+                                                <br><br>
+                                            <% } %>
+                                            <label for="komprehensifRevisiDosen1">Upload File Revisi 1 Bimbingan Komprehensif Mahasiswa</label>
+                                            <input class="form-control-file" type="file" accept="*/*" name="komprehensifRevisiDosen1" id="komprehensifRevisiDosen1" required>
+                                        <% } %>
+                                    <% } %> 
+                                <% }) %>
+                            </div>                            
                         <br>
                         <div class="form-group">
                             <% if (dosenPembimbing1 || dosenPembimbing2) { %>

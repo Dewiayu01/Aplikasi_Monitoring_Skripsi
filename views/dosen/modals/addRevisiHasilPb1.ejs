@@ -21,27 +21,26 @@
                                 <input class="form-control w-25" type="text" name="judul" id="judul" value="<%= judul %>" disabled>
                             </div>
                             <div class="form-group">
+                                <% const uniqueStudentIds = new Set(); %>
                                 <% dataBimbinganHasilSkripsi.map((item, i) => { %>
-                                <% if (item.DevisionOfLecturer) { %>
-                                <% if (item.DevisionOfLecturer.dosenPembimbing1 === username) { %>
-                                <% if (item.hasilSkripsiRevisiDosen1) { %>
-                                    <label for="hasilSkripsiRevisiDosen1">Revisi Hasil Skripsi Pb 1</label>
-                                    <br style="margin-top: 10px;">
-                                    <input class="form-control" type="text" id="hasilSkripsiRevisiDosen1" value="<%= item.hasilSkripsiRevisiDosen1 %>" disabled>
-                                    <br>
-                                    <a href="/dosen/hasil-skripsi-revisiDosen1/download/<%= item.id %>" download="<%= item.hasilSkripsiRevisiDosen1.split('/').pop() %>" class="btn btn-primary">Unduh Revisi Hasil Skripsi Pb 1</a>
-                                    <br><br>
-                                    <label for="hasilSkripsiRevisiDosen1">Upload File Revisi 1 Bimbingan Hasil Skripsi Mahasiswa</label>
-                                    <input class="form-control-file" type="file" accept="*/*" 
-                                    name="hasilSkripsiRevisiDosen1" id="hasilSkripsiRevisiDosen1" required>
-                                <% } else { %>
-                                    <label for="hasilSkripsiRevisiDosen1">Upload File Revisi 1 Bimbingan Hasil Skripsi Mahasiswa</label>
-                                    <input class="form-control-file" type="file" accept="*/*" name="hasilSkripsiRevisiDosen1" id="hasilSkripsiRevisiDosen1" required>
-                                <% } %>
-                                <% } %> 
-                            <% } %>
-                        <% }) %>
-                        </div>
+                                    <% if (item.DevisionOfLecturer) { %>
+                                        <% const studentId = item.idMahasiswa; %>
+                                        <% if (!uniqueStudentIds.has(studentId) && item.DevisionOfLecturer.dosenPembimbing1 === username) { %>
+                                            <% uniqueStudentIds.add(studentId); %>
+                                            <% if (item.hasilSkripsiRevisiDosen1) { %>
+                                                <label for="hasilSkripsiRevisiDosen1">Revisi Hasil Skripsi Pb 1</label>
+                                                <br style="margin-top: 10px;">
+                                                <input class="form-control" type="text" id="hasilSkripsiRevisiDosen1" value="<%= item.hasilSkripsiRevisiDosen1 %>" disabled>
+                                                <br>
+                                                <a href="/dosen/hasil-skripsi-revisiDosen1/download/<%= item.id %>" download="<%= item.hasilSkripsiRevisiDosen1.split('/').pop() %>" class="btn btn-primary">Unduh Revisi Hasil Skripsi Pb 1</a>
+                                                <br><br>
+                                            <% } %>
+                                            <label for="hasilSkripsiRevisiDosen1">Upload File Revisi 1 Bimbingan Hasil Skripsi Mahasiswa</label>
+                                            <input class="form-control-file" type="file" accept="*/*" name="hasilSkripsiRevisiDosen1" id="hasilSkripsiRevisiDosen1" required>
+                                        <% } %>
+                                    <% } %> 
+                                <% }) %>
+                            </div>                            
                         <br>
                         <div class="form-group">
                             <% if (dosenPembimbing1 || dosenPembimbing2) { %>
