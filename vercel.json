@@ -1,24 +1,15 @@
 {
-  "routes" : [
+  "version": 2,
+  "builds": [
     {
-      "router": "/mahasiswa",
-      "dest": "/register"
-    },
+      "src": "./index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
     {
-      "router": "/admin",
-      "dest": "/login"
-    },
-    {
-      "router": "/dosen",
-      "dest": "/login"
-    },
-    {
-      "router": "/mahasiswa",
-      "dest": "/login"
-    },
-    {
-      "router": "/koordinator-skripsi",
-      "dest": "/login"
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }
