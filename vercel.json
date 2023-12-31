@@ -6,19 +6,19 @@
     },
     {
       "routes": "/admin",
-      "dest": "/"
+      "dest": "/login"
     },
     {
       "routes": "/dosen",
-      "dest": "/"
+      "dest": "/login"
     },
     {
       "routes": "/mahasiswa",
-      "dest": "/"
+      "dest": "/login"
     },
     {
       "routes": "/koordinator-skripsi",
-      "dest": "/"
+      "dest": "/login"
     }
   ]
 }
