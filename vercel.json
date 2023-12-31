@@ -1,23 +1,23 @@
 {
   "routes" : [
     {
-      "routes": "/",
-      "dest": "/"
+      "router": "/mahasiswa",
+      "dest": "/register"
     },
     {
-      "routes": "/admin",
+      "router": "/admin",
       "dest": "/login"
     },
     {
-      "routes": "/dosen",
+      "router": "/dosen",
       "dest": "/login"
     },
     {
-      "routes": "/mahasiswa",
+      "router": "/mahasiswa",
       "dest": "/login"
     },
     {
-      "routes": "/koordinator-skripsi",
+      "router": "/koordinator-skripsi",
       "dest": "/login"
     }
   ]
