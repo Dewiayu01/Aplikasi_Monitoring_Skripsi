@@ -1,112 +1,15 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "./index.js",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     {
-      "src": "/api/admin/.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/api/register",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/login",
+      "src": "/(.*)",
       "dest": "/"
-    },
-    {
-      "src": "/dashboard",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/list-tahun-akademik.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/mahasiswa.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/dosen.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/koordinator-skripsi.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/pengajuan-judul.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/judul-diterima",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/pembagian-dosen.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/permintaan-bimbingan.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/daftar-dosen.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/proposal.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/proposal-masuk.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/proposal-terjadwal.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/proposal-selesai.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/hasil-skripsi.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/hasil-masuk.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/hasil-terjadwal.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/hasil-selesai.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/komprehensif.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/komprehensif-masuk.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/komprehensif-terjadwal.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/komprehensif-selesai.*",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/.*profile",
-      "dest": "/router/admin.js"
-    },
-    {
-      "src": "/logout",
-      "dest": "/router/admin.js"
     }
   ]
 }
