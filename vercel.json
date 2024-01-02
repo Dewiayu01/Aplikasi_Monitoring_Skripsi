@@ -10,7 +10,7 @@
     },
     {
       "src": "/login",
-      "dest": "/router/admin.js"
+      "dest": "/"
     },
     {
       "src": "/dashboard",
