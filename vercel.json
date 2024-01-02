@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "src": "/api/register",
+      "dest": "/controllers/adminController.js/registerAPI",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/login",
+      "dest": "/controllers/adminController.js/login",
+      "methods": ["GET", "POST"]
+    },
+    {
+      "src": "/dashboard",
+      "dest": "/controllers/adminController.js/getDashboardAdmin",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/list-tahun-akademik",
+      "dest": "/controllers/adminController.js/getThesisRegistrations",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/path/to/your/server.js"
+    }
+  ]
+}
