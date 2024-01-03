@@ -14,16 +14,16 @@
     "dialect": "mysql"
   },
   "production": {
-    "production": {
-      "use_env_variable": "POSTGRES_URL",
-      "dialect": "postgres",
-      "ssl": true,
-      "dialectOptions": {
-        "ssl": {
-          "require": true
+    "use_env_variable":"POSTGRES_URL",
+    "ssl": true,
+    "dialect": "postgres",
+    "protocol": "postgres",
+    "dialectOptions": {
+      "ssl" : {
+        "require":true,
+        "rejectUnauthorized":false
       }
     }
+    }
   }
- }
-}
 
