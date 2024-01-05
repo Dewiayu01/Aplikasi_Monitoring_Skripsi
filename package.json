@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vercel/postgres": "^0.5.1",
     "async": "^3.2.4",
     "bcrypt": "^5.1.0",
     "clipboard": "^2.0.11",
