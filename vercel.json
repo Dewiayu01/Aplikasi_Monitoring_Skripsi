@@ -1,12 +1,5 @@
 {
-  "router": [
-    {
-      "src": "/(.*)",
-      "dest": "/router",
-      "status": 200
-    }
-  ],
-  "env": {
-    "PORT": 5001
-  }
+  "rewrites": [
+    {"source": "/(.*)", "destination": "/"}
+  ]
 }
