@@ -19,10 +19,6 @@
     {
       "source": "/mahasiswa/login",
       "destination": "/mahasiswa/login"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/"
     }
   ]
 }
