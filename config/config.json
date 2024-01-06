@@ -14,16 +14,17 @@
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable":"DATABASE_URL",
+    "supabase_url": "${process.env.SUPABASE_URL}",
+    "supabase_key": "${process.env.SUPABASE_KEY}",
     "ssl": true,
     "dialect": "postgres",
     "protocol": "postgres",
     "dialectOptions": {
-      "ssl" : {
-        "require":true,
-        "rejectUnauthorized":false
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
       }
     }
-    }
-  }
+  }  
+}
 
