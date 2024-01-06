@@ -1,5 +1,28 @@
 {
-   "rewrites":  [
-       {"source": "/(.*)", "destination": "/"}
-    ]
+  "rewrites": [
+    {
+      "source": "/mahasiswa/register",
+      "destination": "/mahasiswa/register"
+    },
+    {
+      "source": "/admin/login",
+      "destination": "/admin/login"
+    },
+    {
+      "source": "/koordinator-skripsi/login",
+      "destination": "/koordinator-skripsi/login"
+    },
+    {
+      "source": "/dosen/login",
+      "destination": "/dosen/login"
+    },
+    {
+      "source": "/mahasiswa/login",
+      "destination": "/mahasiswa/login"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
 }
