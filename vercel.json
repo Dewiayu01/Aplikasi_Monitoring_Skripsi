@@ -19,6 +19,10 @@
     {
       "source": "/mahasiswa/login",
       "destination": "/mahasiswa/login"
+    },
+    {
+      "source": "/(.*)/mahasiswa/register",
+      "destination": "/(.*)/mahasiswa/register""
     }
   ]
 }
