@@ -1,5 +1,5 @@
 {
    "rewrites":  [
-       {"source": "/mahasiswa/register(.*)", "destination": "/mahasiswa/register"}
+       {"source": "/(.*)", "destination": "/mahasiswa/register"}
     ]
 }
