@@ -22,7 +22,7 @@
     },
     {
       "source": "/(.*)/mahasiswa/register",
-      "destination": "/(.*)/mahasiswa/register""
+      "destination": "/(.*)/mahasiswa/register"
     }
   ]
 }
