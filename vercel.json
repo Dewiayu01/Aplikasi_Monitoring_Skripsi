@@ -1,7 +1,5 @@
-"builds": [
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "./src/router/index.js"
-        }
-    
+{
+  "rewrites": [
+    {"source": "/(.*)", "destination": "/router/index.js"}
+  ]
+}
