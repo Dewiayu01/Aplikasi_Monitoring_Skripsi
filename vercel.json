@@ -1,5 +1,28 @@
 {
   "rewrites": [
-    {"source": "/(.*)", "destination": "/router/index.js"}
+    {
+      "source": "/mahasiswa/register",
+      "destination": "./src/router/mahasiswa/register"
+    },
+    {
+      "source": "/admin/login",
+      "destination": "./src/router/admin/login"
+    },
+    {
+      "source": "/koordinator-skripsi/login",
+      "destination": "./src/router/koordinator-skripsi/login"
+    },
+    {
+      "source": "/dosen/login",
+      "destination": "./src/router/dosen/login"
+    },
+    {
+      "source": "/mahasiswa/login",
+      "destination": "./src/router/mahasiswa/login"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "./src/router/index.js"
+    }
   ]
 }
