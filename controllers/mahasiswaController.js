@@ -94,7 +94,7 @@ const register = async (req, res) => {
                   <br>
                   <p>Anda menerima email ini karena untuk mengkonfirmasi login di Aplikasi Monitoring Skripsi.</p>
                   <p>Indonesia,</p>
-                  <p>Copyright @ Aplikasi Monitoring Skripsi 2023</p>
+                  <p>Copyright @ Aplikasi Monitoring Skripsi 2024</p>
                  <br>
                   <b><p>ini adalah email otomatis, tolong jangan balas email ini!</p></b>`
       })
